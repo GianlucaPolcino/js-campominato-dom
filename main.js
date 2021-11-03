@@ -3,6 +3,7 @@ const container = document.querySelector('.gp-container');
 const btn = document.querySelector('.btn-outline-dark');
 const option = document.getElementById('options');
 const BOMBS_NUMBER = 16;
+let bombs = [];
 
 // Aggiungo l'event listner al click del bottone, determinando il numero di quadrati per livello di difficoltà 
 btn.addEventListener('click', function(){    
@@ -21,8 +22,7 @@ btn.addEventListener('click', function(){
 
     init(squares);
 
-    const bombs = [];
-
+    bombs = [];
 
     generateBombs();
 
@@ -31,17 +31,15 @@ btn.addEventListener('click', function(){
 
 
     function generateBombs(){
-        
+    
         for(let i = 0; i < BOMBS_NUMBER; i++){
-            bomb = generateRandom(1, squares);
+            let bomb = generateRandom(1, squares);
             if(bombs.includes(bomb)){
                 i--
             } else{
                 bombs.push(bomb);
-            }
-            
+            }   
         }
-
 
     }
 })
@@ -52,10 +50,12 @@ function init(tot){
         const sq = createSquare(container);
         sq.innerHTML = i + 1;
         sq.addEventListener('click',function(){
-            sq.classList.add('gp-clicked');
-            // if(generateBombs(bombs).includes(i)){
-            //     this.classList.add('gp-bomb');
-            // }
+            let numCheck = parseInt(this.textContent);
+            if(bombs.includes(numCheck)){
+                sq.classList.add('gp-bomb');
+            }else{
+                sq.classList.add('gp-clicked');
+            }
         })
     
     }
