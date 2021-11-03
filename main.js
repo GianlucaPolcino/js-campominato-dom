@@ -4,11 +4,14 @@ const btn = document.querySelector('.btn-outline-dark');
 const option = document.getElementById('options');
 const BOMBS_NUMBER = 16;
 let bombs = [];
+let counter = 0;
+let valid = true;
 
 // Aggiungo l'event listner al click del bottone, determinando il numero di quadrati per livello di difficoltà 
 btn.addEventListener('click', function(){    
     // Azzero il contenuto dell'HTML ogni volta che clicco il bottone 
     container.innerHTML = "";
+    valid = true;
     // Dichiaro i quadrati da utilizzare per le difficoltà 
     let squares;
     // Determino le difficoltà 
@@ -49,12 +52,18 @@ function init(tot){
     for(let i = 0; i < tot; i++){
         const sq = createSquare(container);
         sq.innerHTML = i + 1;
+        
         sq.addEventListener('click',function(){
-            let numCheck = parseInt(this.textContent);
-            if(bombs.includes(numCheck)){
-                sq.classList.add('gp-bomb');
-            }else{
-                sq.classList.add('gp-clicked');
+            if(valid == true){
+                let numCheck = parseInt(this.textContent);
+                if(bombs.includes(numCheck)){
+                    sq.classList.add('gp-bomb');
+                    container.append(`Peccato! Hai giocato ${counter} volte!`);
+                    valid = false;
+                }else{
+                    sq.classList.add('gp-clicked');
+                    counter++;
+                 }
             }
         })
     
