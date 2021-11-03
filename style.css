@@ -1,0 +1,65 @@
+.gp-logo{
+    width: 70px;
+}
+
+.gp-header{
+    height: 100px;
+}
+
+.gp-background{
+    height: calc(100vh - 170px);
+    background-color: aquamarine;
+}
+
+.gp-container{
+    display: flex;
+    margin: 0 auto;
+    height: 500px;
+    width: 500px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
+}
+
+.gp-easy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.gp-normal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.gp-hard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.gp-clicked{
+    background-color: greenyellow;
+}
+
+.gp-clearfix::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
