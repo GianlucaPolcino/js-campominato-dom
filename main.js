@@ -12,6 +12,7 @@ btn.addEventListener('click', function(){
     // Azzero il contenuto dell'HTML ogni volta che clicco il bottone 
     container.innerHTML = "";
     valid = true;
+    counter = 0;
     // Dichiaro i quadrati da utilizzare per le difficoltà 
     let squares;
     // Determino le difficoltà 
