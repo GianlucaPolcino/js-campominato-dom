@@ -56,6 +56,10 @@
     background-color: greenyellow;
 }
 
+.gp-bomb{
+    background-color: red;
+}
+
 .gp-clearfix::after{
     content: "";
     display: table;
